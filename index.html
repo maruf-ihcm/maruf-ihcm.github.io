@@ -1,136 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Business Card</title>
-    <style>
-        :root {
-            --bg-color: #f4f7f6;
-            --card-bg: #ffffff;
-            --text-main: #2d3748;
-            --text-muted: #718096;
-            --accent: #3182ce;
-            --accent-hover: #2b6cb0;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+    body {
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-        .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            width: 100%;
-            max-width: 400px;
-            padding: 32px;
-            text-align: center;
-            transition: transform 0.2s;
-        }
+    .card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 600px;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-        .profile-img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid var(--accent);
-        }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 400;
+      color: #222;
+      margin-bottom: 8px;
+    }
 
-        .name {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
+    .header .title {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 4px;
+    }
 
-        .title {
-            font-size: 16px;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .header .company {
+      font-size: 14px;
+      color: #555;
+    }
 
-        .bio {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-main);
-            margin-bottom: 28px;
-        }
+    .section-title {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 24px;
+    }
 
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+    .info-group {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
 
-        .link-btn {
-            display: block;
-            padding: 14px;
-            background-color: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: background-color 0.2s, transform 0.1s;
-        }
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 20px;
+      margin-top: 2px;
+      color: #5f6368;
+      flex-shrink: 0;
+    }
 
-        .link-btn:hover {
-            background-color: var(--accent-hover);
-        }
+    .details {
+      display: flex;
+      flex-direction: column;
+    }
 
-        .link-btn:active {
-            transform: scale(0.98);
-        }
+    .details a, .details span.value {
+      font-size: 15px;
+      color: #202124;
+      text-decoration: none;
+      word-break: break-word;
+    }
 
-        .link-btn.secondary {
-            background-color: #edf2f7;
-            color: var(--text-main);
-        }
+    .details a:hover {
+      text-decoration: underline;
+    }
 
-        .link-btn.secondary:hover {
-            background-color: #e2e8f0;
-        }
-    </style>
+    .details .label {
+      font-size: 13px;
+      color: #70757a;
+      margin-top: 2px;
+    }
+
+    .btn-save {
+      background-color: #e0e0e0;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      transition: background-color 0.2s;
+    }
+
+    .btn-save:hover {
+      background-color: #d5d5d5;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="card">
-        <!-- Replace with your own image URL -->
-        <img class="profile-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=256&h=256" alt="Profile Picture">
-        
-        <h1 class="name">Jane Doe</h1>
-        <p class="title">Software Engineer & Designer</p>
-        
-        <p class="bio">Building clean, minimalist web experiences. Let's connect or collaborate on your next project!</p>
-        
-        <div class="links-container">
-            <a href="mailto:your.email@example.com" class="link-btn">Email Me</a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="link-btn secondary">LinkedIn</a>
-            <a href="https://github.com/yourusername" target="_blank" class="link-btn secondary">GitHub</a>
-            <a href="https://yourportfolio.com" target="_blank" class="link-btn secondary">Portfolio Website</a>
-        </div>
+  <div class="card">
+    <div class="header">
+      <h1>Ar. Sharmin Afroz Shumi</h1>
+      <div class="title">Chairman</div>
+      <div class="company">IHCM</div>
     </div>
+
+    <div class="section-title">Contact details</div>
+
+    <!-- Phone -->
+    <div class="info-group">
+      <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+      <div class="details">
+        <a href="tel:+8801711356045">+880 1711-356045</a>
+        <span class="label">Cell</span>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="info-group">
+      <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <div class="details">
+        <a href="mailto:sharminru@yahoo.com">sharminru@yahoo.com</a>
+      </div>
+    </div>
+
+    <!-- Website -->
+    <div class="info-group">
+      <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+      </svg>
+      <div class="details">
+        <a href="https://sharminafrozshumi.com/" target="_blank">https://sharminafrozshumi.com/</a>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="info-group">
+      <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      </svg>
+      <div class="details">
+        <span class="value">Jabbar Tower, House#42 (Level-8), Road#135, Gulshan-01, Dhaka, 1212 BANGLADESH</span>
+        <span class="label">Address</span>
+      </div>
+    </div>
+
+    <button class="btn-save">Save Contact</button>
+  </div>
 
 </body>
 </html>
